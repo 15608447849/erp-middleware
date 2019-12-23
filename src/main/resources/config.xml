@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<class>
+    <servlet>
+        <address>/ice_node_invoke_receive</address>
+        <path>NodeServerReceiveServlet</path>
+    </servlet>
+    <execute>
+        <type>TEST</type>
+        <path>TestConnect</path>
+    </execute>
+</class>

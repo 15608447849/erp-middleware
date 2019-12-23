@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id "com.github.johnrengelman.shadow" version "4.0.2"
+    id "org.springframework.boot" version "2.0.3.RELEASE"
+}
+
+group 'erp'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven{
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'org.apache.logging.log4j:log4j-api:2.11.2'
+    implementation 'org.apache.logging.log4j:log4j-core:2.11.2'
+    implementation 'io.undertow:undertow-core:2.0.1.Final'
+    implementation 'io.undertow:undertow-servlet:2.0.1.Final'
+    implementation 'io.undertow:undertow-websockets-jsr:2.0.1.Final'
+    //json
+    implementation 'com.google.code.gson:gson:2.8.5'
+}
+
+shadowJar {
+    baseName = 'er[-middle'
+    classifier = null
+    version = 1.0
+    manifest {
+        attributes 'Main-Class': 'com.erp.Launch'
+    }
+//    dependencies {    }
+}
